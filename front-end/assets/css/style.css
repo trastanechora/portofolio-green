@@ -26,6 +26,7 @@ body {
 .banner-opening {
   padding-left: 50px;
   padding-right: 20px;
+  padding-top: 50px;
 }
 .banner-opening p {
   font-size: 14px;
@@ -55,6 +56,11 @@ body {
 
 .slider-control {
   margin-top: -30px;
+  height: 50px;
+}
+
+.arrow-slider {
+  z-index: 5;
 }
 
 ol.carousel-indicators {
@@ -87,7 +93,7 @@ ol.carousel-indicators li {
   vertical-align: middle;
 }
 
-.menu-item:hover {
+.menu-item.active, .menu-item:hover {
   border-bottom: solid;
   border-color: #1e7438;
   margin-top: -10px;
@@ -111,7 +117,7 @@ ol.carousel-indicators li {
 
 .content-area {
   background-color: #f0f0f0;
-  height: 500px;
+  min-height: 500px;
 }
 
 .content-body {
@@ -183,6 +189,64 @@ input.form-control.mr-sm-2.search::placeholder {
 input.form-control.mr-sm-2.search:focus {
   border-color: rgba(126, 239, 104, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+}
+
+.register-body {
+  padding-top: 50px;
+}
+
+.register-page {
+  height: 300px;
+}
+.register-page div .banner-opening {
+  padding-top: 0;
+}
+
+.form-area {
+  background-color: white;
+  margin-top: -100px;
+  box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.form-centering {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+.form-centering form {
+  font-size: 16px;
+  color: #1e7438;
+}
+
+.form-header {
+  text-align: center;
+  font-size: 20px;
+  color: #1e7438;
+}
+
+#register-button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+p#register-to-login {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.info-header {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.info-content {
+  font-size: 16px;
+  margin-bottom: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
