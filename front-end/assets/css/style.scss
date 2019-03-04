@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900');
+
+// Color palettes
+$dark-green: rgb(30, 116, 56);
+$lime: rgb(90, 167, 70);
+$cream: rgb(245, 245, 220);
+$grey: rgb(240, 240, 240);
+$pale-yellow: rgb(244, 255, 148);
+$yellow: rgb(255, 230, 87);
+
+body {
+   background-color: $grey;
+   bottom: 0;
+}
+
+// ================= Navbar start here ==================
+#logo, #register-btn, #login-btn {
+   text-align: center;
+}
+
+.navbar {
+   background-color: $dark-green;
+   color: white;
+   position: fixed;
+   width: 100%;
+   z-index: 100;
+}
+// ================= Navbar end here ==================
+
+// ================= Banner start here ==================
+.banner {
+   height: 450px;
+   background-color: $pale-yellow;
+   padding-top: 100px;
+   color: $dark-green;
+}
+
+.banner-opening {
+   padding-left: 50px;
+   padding-right: 20px;
+   p {
+      font-size: 14px;
+   }
+}
+
+.slider-circles {
+   height: 20px;
+   width: 20px;
+   border-radius: 50%;
+   background-color: white;
+   margin-right: 5px;
+   border-style: solid;
+   border-color: $dark-green;
+}
+
+.slider-item {
+   max-width: 100%;
+}
+
+.carousel.slide.col-md-8.row {
+   height: 200px;
+}
+
+.carousel-inner {
+   max-height: 100%;
+}
+
+.slider-control {
+   margin-top: -30px;
+}
+
+ol.carousel-indicators {
+   position: relative;
+   li {
+      background-color: $dark-green;
+   }
+}
+
+.carousel-control-prev-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(30, 116, 56)' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(30, 116, 56)' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+// ================= Navbar end here ==================
+
+// .active {
+//    background-color: $dark-green;
+// }
+
+// ================= Menu start here ==================
+.menu-display {
+   background-color: white;
+   margin-top: -50px;
+   height: 75px;
+   margin-right: auto;
+   margin-left: auto;
+   z-index: 50;
+   justify-content: space-evenly;
+   // justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+
+}
+
+.menu-item {
+   margin-right: 10px;
+   vertical-align: middle;
+}
+
+.menu-item:hover {
+   // background-color: black;
+   border-bottom: solid;
+   border-color: $dark-green;
+   margin-top: -10px;
+   cursor: pointer;
+}
+
+.menu-image {
+   // background-color: $dark-green;
+   // width: 50px;
+   padding-top: 5px;
+   img {
+      max-width: 40px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+   }
+}
+
+.menu-text {
+   // background-color: black;
+   font-size: 14px;
+   text-align: center;
+   // color: $dark-green;
+   // border-bottom: solid;
+   // padding-bottom: 10px;
+   // border-bottom: 100px;
+}
+
+// ================= Menu end here ==================
+
+.content-area {
+   background-color: $grey;
+   // margin-top: -25px;
+   height: 500px;
+}
+
+.content-body {
+   background-color: white;
+   margin-top: 30px;
+}
+
+.footer {
+   background-color: $dark-green;
+   // height: 100px;
+   margin-top: 40px;
+   color: white;
+   padding-top: 50px;
+}
+
+.footer-handler {
+   margin-right: auto;
+   margin-left: auto;
+   // background-color: black;
+}
+
+.menu-footer {
+   font-size: 14px;
+}
+
+.copyright-footer {
+   font-size: 14px;
+   text-align: center;
+   padding-bottom: 20px;
+   // background-color: black;
+   margin-bottom: 0;
+}
+
+.btn.btn-outline-success {
+   background-color: white;
+   color: $dark-green;
+   font-size: 14px;
+}
+
+.btn.btn-outline-success:hover {
+   color: black;
+   border-color: rgba(126, 239, 104, 0.8);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+}
+
+.btn.btn-outline-success.login {
+   background-color: $dark-green;
+   // font-size: 14px;
+   color: white;
+   margin-right: 10px;
+}
+
+.btn.btn-outline-success.login:hover {
+   background-color: white;
+   color: $dark-green;
+   border-color: rgba(126, 239, 104, 0.8);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+}
+
+.form-control.mr-sm-2.search {
+   background-color: $dark-green;
+   color: white;
+   font-size: 14px;
+   border-color: white;
+}
+
+input.form-control.mr-sm-2.search::placeholder {
+   color: $dark-green;
+   font-size: 14px;
+   background-color: white;
+ }
+
+// input.form-control.mr-sm-2.search:focus {
+//    border-color: rgba(126, 239, 104, 0.8);
+//    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+//    outline: 0 none;
+// }
+input.form-control.mr-sm-2.search:focus {
+   border-color: rgba(126, 239, 104, 0.8);
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+}
+
