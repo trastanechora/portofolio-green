@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 register-form-area">
-                    <div class="form-area col-md-10">
+                    <div class="form-area col-md-10" id="register">
                         <div class="container col-md-10 form-centering">
                             <p class="form-header"><strong>Ayo bergabung dengan {company name}</strong></p>
                             <form>
@@ -80,7 +80,25 @@
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="********">
                                 </div>
                                 <button id="register-button" type="submit" class="btn btn-outline-success login">Daftar</button>
-                                <p id="register-to-login">Sudah memiliki akun? Silahkan login di <a href="">sini</a> .</p>
+                                <p id="register-to-login">Sudah memiliki akun? Silahkan login di <a href="#" onclick="changeToLogin()">sini</a> .</p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="form-area col-md-10" id="login">
+                        <div class="container col-md-10 form-centering">
+                            <p class="form-header"><strong>Masuk sekarang untuk menikmati fitur {company name}</strong></p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Username</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="usernameanda">
+                                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="********">
+                                </div>
+                                <button id="register-button" type="submit" class="btn btn-outline-success login">Masuk</button>
+                                <p id="register-to-login">Melum memiliki akun? Daftarkan diri anda di <a href="#" onclick="changeToRegister()">sini</a> .</p>
                             </form>
                         </div>
                     </div>
@@ -119,5 +137,6 @@
                 <p class="copyright-footer">copyright {company name}</p>
             </div>
         </footer>
+        <script src="assets/js/main.js"></script>
     </body>
 </html>

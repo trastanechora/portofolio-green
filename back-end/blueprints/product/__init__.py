@@ -16,7 +16,9 @@ class Product(db.Model):
     location = db.Column(db.String(50))
     # photo = db.Column(db.File)
     status = db.Column(db.String(20))
-    offer = db.Column(db.String(200))
+    # offer = db.Column(db.ARRAY(db.String), server_default="[]")
+    # offer = db.ARRAY(db.String), server_default='[]'
+    offer = db.Column(db.String(2000))
     delivery_provided = db.Column(db.String(10))
 
     response_field = {
@@ -49,6 +51,7 @@ class Product(db.Model):
         self.status = status
         self.offer = offer
         self.delivery_provided = delivery_provided
+        # super(Product, self).__init__()
 
     def __repr__(self):
         return '<Product id %d>' % self.id

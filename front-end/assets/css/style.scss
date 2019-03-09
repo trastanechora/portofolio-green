@@ -25,6 +25,10 @@ body {
    width: 100%;
    z-index: 100;
 }
+
+#login {
+   display: none;
+}
 // ================= Navbar end here ==================
 
 // ================= Banner start here ==================
@@ -238,6 +242,7 @@ input.form-control.mr-sm-2.search:focus {
 .register-body {
    // background-color: $dark-green;
    padding-top: 50px;
+   padding-left: 100px;
 }
 
 // .register-form-area {
@@ -299,3 +304,94 @@ label {
    font-size: 16px;
    margin-bottom: 50px;
 }
+
+// ================= Product page start here ==================
+
+// .row {
+//    margin-right: 0;
+//    margin-left: 0;
+//    width: 100%;
+// }
+
+.black {
+   background-color: black;
+}
+
+.green {
+   background-color: $dark-green;
+}
+
+.product-title {
+   border-bottom: solid;
+   border-top: solid;
+   border-color: $dark-green;
+   margin-bottom: 20px;
+   margin-top: 20px;
+   text-align: center;
+}
+
+.content-info {
+   height: 200px;
+}
+
+.header-content {
+   display: flex;
+}
+
+.test {
+   margin-top: 10px;
+   display: flex;
+   // background-color: yellow;
+}
+
+.test:hover {
+   background-color: $dark-green;
+   color: white;
+   cursor: pointer; 
+}
+
+.content-info {
+   font-size: 13px;
+   .th-content {
+      text-align: center;
+      // vertical-align: middle;
+      margin: auto;
+   }
+}
+
+.content-table {
+   font-size: 14px;
+}
+
+.wrapper-content-list {
+   margin-bottom: 50px;
+   margin-top: 30px;
+}
+
+.product-image {
+   img {
+      max-height: 200px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+   }
+}
+
+.pagination {
+   .page-item {
+      .page-link {
+         color: $dark-green;
+      }
+   }
+   .page-item.active {
+      .page-link {
+         color: white;
+         background-color: $dark-green;
+      }
+   }
+}
+
+
+// TEST
+
+// TEST

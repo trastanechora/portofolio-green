@@ -1,4 +1,4 @@
-import logging, json
+import logging, json, jsonify
 import datetime
 from flask import Blueprint
 from flask_restful import Api, Resource, reqparse, marshal
@@ -6,6 +6,7 @@ from blueprints import db
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from . import *
 from ..user import User
+from ..product import Product
 
 bp_offer = Blueprint('offer', __name__)
 api = Api(bp_offer)
@@ -13,10 +14,6 @@ api = Api(bp_offer)
 class OfferResource(Resource):
     def __init__(self):
         pass
-        # if User.query.first() is None:
-        #     user = User(None, "trastanechora", "roadtoalterra", None, "maestro@alphatech.id", None, None, None, None, datetime.datetime.now(), None, None)
-        #     db.session.add(user)
-        #     db.session.commit()
 
     def get(self, id=None):
         parse = reqparse.RequestParser()
@@ -29,34 +26,76 @@ class OfferResource(Resource):
 
         offset = args['p']*args['rp']-args['rp']
 
-        qry = Product.query
+        qry = Offer.query
 
-        product_list = []
-        for product in qry.limit(args['rp']).offset(offset).all():
-            product_list.append(marshal(product, Product.response_field))
-        return product_list, 200, {'Content-Type': 'application/json'}
+        offer_list = []
+        for offer in qry.all():
+            offer_list.append(marshal(offer, Offer.response_field))
+        return offer_list, 200, {'Content-Type': 'application/json'}
 
     @jwt_required
     def post(self):
+        # ========= Get all required parameters as offer
         parse = reqparse.RequestParser()
-        parse.add_argument('name', location='json', required=True)
-        parse.add_argument('product_type', location='json', required=True)
-        parse.add_argument('category', location='json', required=True)
-        parse.add_argument('description', location='json')
+        parse.add_argument('product_id', location='json', required=True)
         parse.add_argument('amount', location='json', required=True)
         parse.add_argument('price', location='json', required=True)
-        parse.add_argument('location', location='json', required=True)
-        parse.add_argument('delivery_provided', location='json', required=True)
+        parse.add_argument('description', location='json', required=True)
+        parse.add_argument('destination', location='json', required=True)
+        args = parse.parse_args()
+        # =========
+
+        # ========= Get the current logged in user
+        user = get_jwt_identity()
+        identity = marshal(user, User.response_field)
+        # =========
+
+        # ========= Put together the input parameters into JSON formated as offer
+        offer = Offer(None, args['product_id'], identity['id'], args['amount'], args['price'], args['description'], args['destination'], datetime.datetime.now(), "WAITING")
+        db.session.add(offer)
+        db.session.commit()
+        # =========
+
+        # ========= Convert the offer JSON into plain string
+        # temp = marshal(offer, Offer.response_field)
+        # dumped_offer = json.dumps(temp)
+        # =========
+
+        # ========= Get the related offer list by product_id from database then convert into plain string
+        offer = Offer.query.filter_by(product_id=args['product_id']).all()
+        temp = marshal(offer, Offer.response_field)
+        dumped_offer = json.dumps(temp)
+
+        # ========= Get the offered product
+        out = Product.query.filter_by(id=args['product_id']).first()
+        # =========
+
+        # ========= Update the offer field in product with the latters list of incoming offer
+        out.offer = dumped_offer
+        db.session.commit()
+        # =========
+
+        # ========= Return the current state of the product
+        return marshal(out, Product.response_field)
+
+        # Change back to json ===============================
+        # temp = json.loads(out.offer)
+        # temp2 = marshal(out, Product.response_field)
+        # temp2['offer'] = temp
+        # return temp2
+
+    @jwt_required
+    def put(self, id):
+        parse = reqparse.RequestParser()
+        parse.add_argument('status', location='json', required=True)
         args = parse.parse_args()
 
         user = get_jwt_identity()
         identity = marshal(user, User.response_field)
 
-        product = Product(None, args['name'], args['product_type'], args['category'], args['description'], args['amount'], args['price'], datetime.datetime.now(), identity['id'], args['location'], "OPEN", None, args['delivery_provided'])
-
-        db.session.add(product)
+        offer = Offer.query.filter_by(id=id).first()
+        offer.status = args['status']
         db.session.commit()
+        return marshal(offer, Offer.response_field), 200, {'Content-Type': 'application/json'}
 
-        return marshal(product, Product.response_field), 200, {'Content-Type': 'application/json'}
-
-api.add_resource(OfferResource,'/users/offers')
+api.add_resource(OfferResource,'/users/offers', '/users/offers/<int:id>')

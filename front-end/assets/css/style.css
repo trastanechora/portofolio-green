@@ -16,6 +16,10 @@ body {
   z-index: 100;
 }
 
+#login {
+  display: none;
+}
+
 .banner {
   height: 450px;
   background-color: #f4ff94;
@@ -193,6 +197,7 @@ input.form-control.mr-sm-2.search:focus {
 
 .register-body {
   padding-top: 50px;
+  padding-left: 100px;
 }
 
 .register-page {
@@ -247,6 +252,74 @@ label {
 .info-content {
   font-size: 16px;
   margin-bottom: 50px;
+}
+
+.black {
+  background-color: black;
+}
+
+.green {
+  background-color: #1e7438;
+}
+
+.product-title {
+  border-bottom: solid;
+  border-top: solid;
+  border-color: #1e7438;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.content-info {
+  height: 200px;
+}
+
+.header-content {
+  display: flex;
+}
+
+.test {
+  margin-top: 10px;
+  display: flex;
+}
+
+.test:hover {
+  background-color: #1e7438;
+  color: white;
+  cursor: pointer;
+}
+
+.content-info {
+  font-size: 13px;
+}
+.content-info .th-content {
+  text-align: center;
+  margin: auto;
+}
+
+.content-table {
+  font-size: 14px;
+}
+
+.wrapper-content-list {
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.product-image img {
+  max-height: 200px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.pagination .page-item .page-link {
+  color: #1e7438;
+}
+.pagination .page-item.active .page-link {
+  color: white;
+  background-color: #1e7438;
 }
 
 /*# sourceMappingURL=style.css.map */

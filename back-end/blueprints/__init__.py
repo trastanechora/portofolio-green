@@ -49,10 +49,12 @@ from blueprints.auth import bp_auth
 # from blueprints.user import bp_user
 from blueprints.user.Resources import bp_user
 from blueprints.product.Resources import bp_product
+from blueprints.offer.Resources import bp_offer
 
 app.register_blueprint(bp_auth, url_prefix='/api')
 app.register_blueprint(bp_user, url_prefix='/api')
 app.register_blueprint(bp_product, url_prefix='/api')
+app.register_blueprint(bp_offer, url_prefix='/api')
 
 db.create_all()
 
