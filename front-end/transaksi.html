@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Green Project - Product Detail</title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row navbar">
+                    <div class="col-md-2"><img class="logo" src="assets/logo/logo2.png" alt=""></div>
+                    <div class="col-md-3">
+                    <button type="button" class="btn btn-outline-success login" style="width: 100%">KATEGORI</button>
+                </div>
+                <div class="col-md-3"><input class="form-control mr-sm-2 search" type="search" placeholder="Cari" aria-label="Search"></div>
+                <div class="col-md-4" id="register-btn"><button type="button" class="btn btn-outline-success login">LOGOUT</button><button type="button" class="btn btn-outline-success">PROFIL</button></div>
+            </div>
+            <div class="row banner">
+                <!-- <div class="container-fluid row">
+                </div> -->
+            </div>
+            
+            <div class="row content-area">
+                <div class="container content-body transaction-body step-1">
+                    <div class="col-md-12 transaction-title">
+                        Lengkapi form transaksi untuk memproses tawaran
+                    </div>
+                    <div class="col-md-12 row transaction-form-wrapper payment">
+                        <div class="col-md-12 small-detail">Metode pembayaran:</div>
+                        <div class="col-md-12"><strong>Transfer</strong></div>
+                    </div>
+                    <div class="col-md-12">
+                        <form action="#" class="container row transaction-form was-validated">
+                            <div class="container payment-method-option">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="bank-option-1" name="bank-option" value="BCA" required>
+                                    <label class="custom-control-label" for="bank-option-1">BCA</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="bank-option-2" name="bank-option" value="Mandiri" required>
+                                    <label class="custom-control-label" for="bank-option-2">Mandiri</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="bank-option-3" name="bank-option" value="BRI" required>
+                                    <label class="custom-control-label" for="bank-option-3">BRI</label>
+                                </div>
+                                <div class="custom-control custom-radio mb-3">
+                                    <input type="radio" class="custom-control-input" id="bank-option-4" name="bank-option" value="BNI" required>
+                                    <label class="custom-control-label" for="bank-option-4">BNI</label>
+                                    <div class="invalid-feedback">Pilih salahsatu bank dari list di atas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 small-detail">
+                                Rincian transaksi
+                            </div>
+                            <div class="col-md-12 rincian row">
+                                <div class="col-md-5 transaction-product-detail">
+                                    Padi Harum Super <br>
+                                    1000 KG
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-5 row transaction-product-detail">
+                                    <div class="col-md-6 row">
+                                        <div class="small col-md-12">Tempat asal:</div>
+                                        <div class="col-md-12"><strong>Malang</strong></div>
+                                    </div>
+                                    <div class="col-md-6 row">
+                                        <div class="small col-md-12">Tempat destinasi:</div>
+                                        <div class="col-md-12"><strong>Surabaya</strong></div>
+                                    </div>
+                                    <!-- Malang -> Surabaya <br>
+                                    Rp. 5.000.000,- -->
+                                </div>
+                            </div>
+                            <button type="submit" onclick="nextStepTransaction()" class="btn btn-outline-success">Lanjut</button>
+                        </form>
+                        <!-- TEST -->
+                        <!-- <form class="was-validated">                    
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="bank-option-1" name="bank-option" required>
+                                <label class="custom-control-label" for="bank-option-1">BCA</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="bank-option-2" name="bank-option" required>
+                                <label class="custom-control-label" for="bank-option-2">Mandiri</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="bank-option-3" name="bank-option" required>
+                                <label class="custom-control-label" for="bank-option-3">BRI</label>
+                            </div>
+                            <div class="custom-control custom-radio mb-3">
+                                <input type="radio" class="custom-control-input" id="bank-option-4" name="bank-option" required>
+                                <label class="custom-control-label" for="bank-option-4">BNI</label>
+                                <div class="invalid-feedback">Pilih salahsatu bank dari list di atas</div>
+                            </div>
+                        </form> -->
+                        <!-- TEST -->
+                    </div>
+                </div>
+                <div class="container content-body transaction-body step-2">
+                        <div class="container row test2">
+                            <div class="col-md-12">
+                                <strong>1. Transfer sebelum waktu berikut:</strong>
+                            </div>
+                            <div class="col-md-12">
+                                Minggu, 10-03-2019 <br>
+                                Pukul 17:00
+                            </div>
+                        </div>
+                        <div class="container row test2">
+                            <div class="col-md-12">
+                                <strong>2. Transfer ke rekening berikut:</strong> 
+                            </div>
+                            <div class="col-md-12">
+                                <strong>BNI</strong> <br>
+                                Nomor Rekening: <strong>8080 8080 80</strong><br>
+                                Pemilik Rekening Atas Nama: <strong>PT. Panenin</strong>
+                                <hr>
+                                Total Nominal Transaksi: <br>
+                                <strong>RP. 4.800.768</strong>
+                            </div>
+                        </div>
+                        <div class="container row test2">
+                            <div class="col-md-12">
+                                <strong>3. Konfirmasi pembayaran anda:</strong> 
+                            </div>
+                            <div class="col-md-12">
+                                    Kunjungi profil anda dan masukkan nomor resi bukti transfer <br>
+                                    Atau bisa tekan tombol berikut: <br>
+                                    <button class="btn btn-outline-success login justify-content-center">Konfirmasi</button>
+                            </div>
+                        </div>       
+                    </div>
+            </div>
+        </div>
+        <footer class="container-fluid footer">
+            <div class="container footer-handler row">
+                <div class="footer-logo col-md-3"><img class="logo-footer" src="assets/logo/logo2.png" alt=""></div>
+                <div class="footer-logo col-md-3">
+                    <p><strong>Tentang Kami</strong></p>
+                    <p class="menu-footer">Blog <br>
+                    QnA <br>
+                    Hubungi Kami</p> 
+                </div>
+                <div class="footer-logo col-md-3">
+                    <p><strong>Beli</strong></p>
+                    <p class="menu-footer">Cara Membeli<br>
+                        Pembayaran
+                    </p>
+                </div>
+                <div class="footer-logo col-md-3">
+                    <p><strong>Jual</strong></p>
+                    <p class="menu-footer">Cara Menjual<br>
+                        Penarikan Dana
+                    </p>
+                </div>
+            </div>
+            <div class="justify-content-center">
+                <hr>
+                <p class="copyright-footer">copyright {company name}</p>
+            </div>
+        </footer>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

@@ -16,24 +16,6 @@ class UserResource(Resource):
             db.session.add(user)
             db.session.commit()
 
-    def get(self, id=None):
-        parse = reqparse.RequestParser()
-        parse.add_argument('p',type=int,location='args',default=1)
-        parse.add_argument('rp',type=int,location='args',default=5)
-        parse.add_argument('client_id',location='args')
-        parse.add_argument('status',location='args')
-        
-        args = parse.parse_args()
-
-        offset = args['p']*args['rp']-args['rp']
-
-        qry = User.query
-
-        user_list = []
-        for user in qry.limit(args['rp']).offset(offset).all():
-            user_list.append(marshal(user, User.response_field))
-        return user_list, 200, {'Content-Type': 'application/json'}
-
     def post(self):
         parse = reqparse.RequestParser()
         parse.add_argument('username', location='json', required=True)
@@ -48,4 +30,46 @@ class UserResource(Resource):
 
         return marshal(user, User.response_field), 200, {'Content-Type': 'application/json'}
 
+class AdminResource(Resource):
+    def get(self, id=None):
+        parse = reqparse.RequestParser()
+        parse.add_argument('p',type=int,location='args',default=1)
+        parse.add_argument('rp',type=int,location='args',default=5)
+        parse.add_argument('client_id',location='args')
+        parse.add_argument('status',location='args')
+        
+        args = parse.parse_args()
+
+        offset = args['p']*args['rp']-args['rp']
+
+        qry = User.query
+        user_list = []
+
+        if id is None:
+            for user in qry.limit(args['rp']).offset(offset).all():
+                user_list.append(marshal(user, User.response_field))
+        else:
+            user = User.query.filter_by(id=id).first()
+            user_list.append(marshal(user, User.response_field))
+
+        return user_list, 200, {'Content-Type': 'application/json'}
+
+    @jwt_required    
+    def delete(self, id):
+        # return id
+        qry = User.query.filter_by(id=id).first()
+        # return marshal(qry, User.response_field)
+
+        # user = get_jwt_identity()
+        # identity = marshal(user, User.response_field)
+
+        if qry is not None:
+            db.session.delete(qry)
+            db.session.commit()
+            return "Data Deleted", 200, { 'Content-Type': 'application/json' }
+        else :
+            return "Data Not Found", 404, { 'Content-Type': 'application/json' }
+        
+
 api.add_resource(UserResource,'/users/register')
+api.add_resource(AdminResource, '/admin/users', '/admin/users/<int:id>')

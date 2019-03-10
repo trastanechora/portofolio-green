@@ -7,10 +7,22 @@ $cream: rgb(245, 245, 220);
 $grey: rgb(240, 240, 240);
 $pale-yellow: rgb(244, 255, 148);
 $yellow: rgb(255, 230, 87);
+$dark-red: rgb(172, 31, 31);
 
 body {
    background-color: $grey;
    bottom: 0;
+}
+
+.logo {
+   max-width: 100px;
+   display: block;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+.logo-footer {
+   max-width: 200px;
 }
 
 // ================= Navbar start here ==================
@@ -155,7 +167,7 @@ ol.carousel-indicators {
 .content-area {
    background-color: $grey;
    // margin-top: -25px;
-   min-height: 500px;
+   // min-height: 500px;
 }
 
 .content-body {
@@ -368,9 +380,18 @@ label {
    margin-top: 30px;
 }
 
+.description-wrapper {
+   margin-top: 20px;
+   margin-bottom: 50px;
+   .wrapper-content-description {
+      margin-bottom: 10px;
+   }
+}
+
 .product-image {
    img {
       max-height: 200px;
+      max-width: 100%;
       display: block;
       margin-right: auto;
       margin-left: auto;
@@ -391,7 +412,138 @@ label {
    }
 }
 
+.time {
+   text-align: right;
+}
 
-// TEST
+.description, .offer {
+   background-color: $yellow;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-radius: 10px;
+   margin-top: 5px;
+   text-align: justify;
+   // border: solid;
+   // border-color: $dark-green;
+}
 
-// TEST
+.offer {
+   background-color: $pale-yellow;
+}
+
+.offer.declined {
+   border: solid;
+   border-color: $dark-red;
+}
+.offer.accepted {
+   border: solid;
+   border-color: $dark-green;
+}
+
+// .status {
+//    display: flex;
+//    .status-declined {
+//       background-color: red;
+//       text-align: center;
+//       color: white;
+//       // padding-right: 20px;
+//    }
+   
+//    .status-accepted {
+//       background-color: $dark-green;
+//       text-align: center;
+//       color: white;
+//       // padding-right: 20px;
+//    }
+// }
+
+.status {
+   display: block;
+}
+
+.status.status-declined {
+   background-color: $dark-red;
+   text-align: center;
+   color: white;
+}
+
+.status.status-accepted {
+   background-color: $dark-green;
+   text-align: center;
+   color: white;
+}
+
+input#response-offer {
+   background-color: $pale-yellow;
+   // color: white;
+   border-radius: 5px;
+}
+
+.transaction-body {
+   margin-top: -250px;
+   padding-top: 30px;
+   font-size: 20px;
+   width: 50%;
+   padding-bottom: 50px;
+   // color: $dark-green;
+   .transaction-title {
+      text-align: center;
+   }
+   .transaction-form-wrapper {
+      margin-right: auto;
+      margin-left: auto;
+   }
+   .small-detail {
+      font-size: 14px;
+      margin-top: 20px;
+   }
+   .payment-method-option {
+      // border: solid;
+      // border-color: $yellow;
+      background-color: $cream;
+      border-radius: 5px;
+      padding-left: 50px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+
+   .transaction-product-detail {
+      border: solid;
+      border-color: $dark-green;
+      background-color: $pale-yellow;
+      border-radius: 5px;
+      padding-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+
+   .btn.btn-outline-success {
+      margin-top: 30px;
+      margin-right: auto;
+      margin-left: auto;
+   }
+
+   .rincian {
+      // display: flex;
+      padding-right: 0;
+   }
+}
+
+.step-2 {
+   display: none;
+   .test2 {
+      // padding: 0;
+      // width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 5px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: $dark-green;
+   }
+}
+

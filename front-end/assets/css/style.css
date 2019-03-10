@@ -4,6 +4,17 @@ body {
   bottom: 0;
 }
 
+.logo {
+  max-width: 100px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo-footer {
+  max-width: 200px;
+}
+
 #logo, #register-btn, #login-btn {
   text-align: center;
 }
@@ -121,7 +132,6 @@ ol.carousel-indicators li {
 
 .content-area {
   background-color: #f0f0f0;
-  min-height: 500px;
 }
 
 .content-body {
@@ -307,8 +317,17 @@ label {
   margin-top: 30px;
 }
 
+.description-wrapper {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.description-wrapper .wrapper-content-description {
+  margin-bottom: 10px;
+}
+
 .product-image img {
   max-height: 200px;
+  max-width: 100%;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -320,6 +339,113 @@ label {
 .pagination .page-item.active .page-link {
   color: white;
   background-color: #1e7438;
+}
+
+.time {
+  text-align: right;
+}
+
+.description, .offer {
+  background-color: #ffe657;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  text-align: justify;
+}
+
+.offer {
+  background-color: #f4ff94;
+}
+
+.offer.declined {
+  border: solid;
+  border-color: #ac1f1f;
+}
+
+.offer.accepted {
+  border: solid;
+  border-color: #1e7438;
+}
+
+.status {
+  display: block;
+}
+
+.status.status-declined {
+  background-color: #ac1f1f;
+  text-align: center;
+  color: white;
+}
+
+.status.status-accepted {
+  background-color: #1e7438;
+  text-align: center;
+  color: white;
+}
+
+input#response-offer {
+  background-color: #f4ff94;
+  border-radius: 5px;
+}
+
+.transaction-body {
+  margin-top: -250px;
+  padding-top: 30px;
+  font-size: 20px;
+  width: 50%;
+  padding-bottom: 50px;
+}
+.transaction-body .transaction-title {
+  text-align: center;
+}
+.transaction-body .transaction-form-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+}
+.transaction-body .small-detail {
+  font-size: 14px;
+  margin-top: 20px;
+}
+.transaction-body .payment-method-option {
+  background-color: beige;
+  border-radius: 5px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.transaction-body .transaction-product-detail {
+  border: solid;
+  border-color: #1e7438;
+  background-color: #f4ff94;
+  border-radius: 5px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.transaction-body .btn.btn-outline-success {
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.transaction-body .rincian {
+  padding-right: 0;
+}
+
+.step-2 {
+  display: none;
+}
+.step-2 .test2 {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #1e7438;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -14,3 +14,12 @@ function changeToRegister() {
     var login = document.getElementById('login');
     login.style.display = 'none';
 }
+
+function nextStepTransaction() {
+    var bank = document.getElementsByName('bank-option').values
+    console.log(bank)
+    var step_1 = document.getElementsByClassName('step-1')[0]
+    step_1.style.display = 'none'
+    var step_2 = document.getElementsByClassName('step-2')[0]
+    step_2.style.display = 'block'
+}
