@@ -6,7 +6,6 @@ from blueprints import db
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from . import *
 from ..user import User
-from ..offer import Offer
 
 bp_transaction = Blueprint('transaction', __name__)
 api = Api(bp_transaction)
@@ -14,10 +13,6 @@ api = Api(bp_transaction)
 class TransactionResource(Resource):
     def __init__(self):
         pass
-        # if User.query.first() is None:
-        #     user = User(None, "trastanechora", "roadtoalterra", None, "maestro@alphatech.id", None, None, None, None, datetime.datetime.now(), None, None)
-        #     db.session.add(user)
-        #     db.session.commit()
 
     def get(self, id=None):
         parse = reqparse.RequestParser()
@@ -46,30 +41,27 @@ class TransactionResource(Resource):
     @jwt_required
     def post(self):
         parse = reqparse.RequestParser()
-        parse.add_argument('name', location='json', required=True)
         parse.add_argument('user_id', location='json', required=True)
         parse.add_argument('product_id', location='json', required=True)
         parse.add_argument('method', location='json', required=True)
         parse.add_argument('amount', location='json', required=True)
         parse.add_argument('bank', location='json', required=True)
-        parse.add_argument('created_at', location='json', required=True)
         parse.add_argument('status', location='json', required=True)
-        parse.add_argument('delivery_provided', location='json', required=True)
         args = parse.parse_args()
 
         user = get_jwt_identity()
         identity = marshal(user, User.response_field)
 
-        product = Product(None, args['name'], args['product_type'], args['category'], args['description'], args['amount'], args['price'], datetime.datetime.now(), identity['id'], args['location'], "OPEN", None, args['delivery_provided'])
+        transaction = Transaction(None, args['user_id'], args['product_id'], args['method'], args['amount'], args['bank'], datetime.datetime.now(), args['status'])
 
-        db.session.add(product)
+        db.session.add(transaction)
         db.session.commit()
 
-        return marshal(product, Product.response_field), 200, {'Content-Type': 'application/json'}
+        return marshal(transaction, Transaction.response_field), 200, {'Content-Type': 'application/json'}
 
 
     @jwt_required
-    def put(self, id):
+    def put(self):
         parse = reqparse.RequestParser()
         parse.add_argument('transaction_id', type=int, location='json', required=True)
         parse.add_argument('status', location='json', required=True)
@@ -78,24 +70,24 @@ class TransactionResource(Resource):
         user = get_jwt_identity()
         identity = marshal(user, User.response_field)
 
-        transaction = Transaction.query.filter_by(id=args['transaction_id']).all()
-        # transaction = marshal(transaction, Transaction.response_field)
-        # dump = json.dumps(ofr)
+        transaction = Transaction.query.filter_by(id=args['transaction_id']).first()
 
-        # out = Product.query.filter_by(id=args['product_id']).first()
-
-        # out.offer = dump
         transaction.status = args['status']
         db.session.commit()
 
-
-        # temp = json.loads(out.offer)
-        # return temp
-        # return marshal(out, Product.response_field)
-
-        # temp2 = marshal(out, Product.response_field)
-        # temp2['offer'] = temp
-
         return marshal(transaction, Transaction.response_field)
 
-api.add_resource(TransactionResource,'/users/transactions', '/users/transactions/<int:id>')
+class AdminTransaction(Resource):
+    @jwt_required    
+    def delete(self, id):
+        qry = Transaction.query.filter_by(id=id).first()
+
+        if qry is not None:
+            db.session.delete(qry)
+            db.session.commit()
+            return "Data Deleted", 200, { 'Content-Type': 'application/json' }
+        else :
+            return "Data Not Found", 404, { 'Content-Type': 'application/json' }
+
+api.add_resource(TransactionResource,'/transactions', '/transactions/<int:id>')
+api.add_resource(AdminTransaction, '/admin/transactions/<int:id>')

@@ -94,5 +94,22 @@ class ProductResource(Resource):
         temp2['offer'] = temp
 
         return temp2
+    
+    @jwt_required
+    def delete(self, id):
+        pass
 
-api.add_resource(ProductResource,'/users/products', '/users/products/<int:id>')
+class AdminProduct(Resource):
+    @jwt_required    
+    def delete(self, id):
+        qry = Product.query.filter_by(id=id).first()
+
+        if qry is not None:
+            db.session.delete(qry)
+            db.session.commit()
+            return "Data Deleted", 200, { 'Content-Type': 'application/json' }
+        else :
+            return "Data Not Found", 404, { 'Content-Type': 'application/json' }
+
+api.add_resource(ProductResource,'/public/products', '/public/products/<int:id>')
+api.add_resource(AdminProduct, '/admin/products/<int:id>')

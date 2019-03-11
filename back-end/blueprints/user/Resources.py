@@ -71,5 +71,5 @@ class AdminResource(Resource):
             return "Data Not Found", 404, { 'Content-Type': 'application/json' }
         
 
-api.add_resource(UserResource,'/users/register')
+api.add_resource(UserResource,'/public/register')
 api.add_resource(AdminResource, '/admin/users', '/admin/users/<int:id>')

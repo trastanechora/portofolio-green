@@ -448,4 +448,24 @@ input#response-offer {
   border-color: #1e7438;
 }
 
+.guide-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.guide-content {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: justify;
+  font-size: 16px;
+  padding-right: 50px;
+  border: solid;
+  border-width: 1px;
+  border-color: #1e7438;
+  border-radius: 10px;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 /*# sourceMappingURL=style.css.map */

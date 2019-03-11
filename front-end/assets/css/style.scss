@@ -547,3 +547,23 @@ input#response-offer {
    }
 }
 
+.guide-title {
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.guide-content {
+   padding-top: 20px;
+   padding-bottom: 10px;
+   text-align: justify;
+   font-size: 16px;
+   padding-right: 50px;
+   border: solid;
+   border-width: 1px;
+   border-color: $dark-green;
+   border-radius: 10px;
+   width: 60%;
+   margin-right: auto;
+   margin-left: auto;
+}
+

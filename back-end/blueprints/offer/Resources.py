@@ -97,5 +97,22 @@ class OfferResource(Resource):
         offer.status = args['status']
         db.session.commit()
         return marshal(offer, Offer.response_field), 200, {'Content-Type': 'application/json'}
+    
+    @jwt_required
+    def delete(self, id):
+        pass
 
-api.add_resource(OfferResource,'/users/offers', '/users/offers/<int:id>')
+class AdminOffer(Resource):
+    @jwt_required    
+    def delete(self, id):
+        qry = Offer.query.filter_by(id=id).first()
+
+        if qry is not None:
+            db.session.delete(qry)
+            db.session.commit()
+            return "Data Deleted", 200, { 'Content-Type': 'application/json' }
+        else :
+            return "Data Not Found", 404, { 'Content-Type': 'application/json' }
+
+api.add_resource(OfferResource, '/offers', '/offers/<int:id>')
+api.add_resource(AdminOffer, '/admin/offers/<int:id>')
