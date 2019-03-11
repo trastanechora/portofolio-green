@@ -11,6 +11,7 @@ https://whimsical.co/7GK4fQWhZT5K23itWyCGf8   <br>
 Dokumentasi API:                              <br>
 ============= USER =============              <br>
 POST        /api/public/register              <br>
+GET         /api/public/login                 <br>
 PUT         /api/public/register/<int:id>     <br>
                                               <br>
 GET         /api/admin/users                  <br>
