@@ -1,6 +1,7 @@
 
 ============= USER =============
 POST        /api/public/register
+GET         /api/public/login
 PUT         /api/public/register/<int:id>
 
 GET         /api/admin/users

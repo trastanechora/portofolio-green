@@ -23,4 +23,4 @@ class CreateTokenResources(Resource):
             return {'status':'UNAUTORIZED', 'message':'invalid key or secret'}, 401
         return {'token': token}, 200
 
-api.add_resource(CreateTokenResources, '/users/login')
+api.add_resource(CreateTokenResources, '/public/login')
